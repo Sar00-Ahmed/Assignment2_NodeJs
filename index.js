@@ -24,15 +24,6 @@ app.get("/Login",(req,res)=>{
     res.sendFile(`${__dirname}/public/views/Login.html`);
 });
 
-
-app.get("/users/:userId",(req, res)=>{
-    const {userId} = req.params;
-    const user = DB.users.find((user) => user.id === userId);
-    if(user)
-        res.json(user);
-    else
-        res.status(404).json("user not found");
-});
 app.post("/users",(req,res)=>{
     const {name, email, password} = req.body;
     console.log(`name: ${name}`);
@@ -45,7 +36,19 @@ app.post("/users",(req,res)=>{
             id: DB.users.length + 1,
         }
     )
+
+    res.statusCode(201).json("user created successfully");
 });
+
+app.get("/users/:userId",(req, res)=>{
+    const {userId} = req.params;
+    const user = DB.users.find((user) => user.id === userId);
+    if(user)
+        res.json(user);
+    else
+        res.status(404).json("user not found");
+});
+
 app.get("/blogs",(res,req)=>{
     if(DB)
         res.json(DB.blogs);
@@ -69,6 +72,7 @@ app.post("/blogs",(req, res)=>{
             id: DB.blogs.length + 1,
         }
     )
+    res.statusCode(201).json("blog created successfully");
 });
 
 app.listen(5000,()=> console.log("server started at 5000"));
