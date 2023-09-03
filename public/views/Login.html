@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link href="../node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body data-bs-theme="dark">
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">BLogger</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link" href="./feed.html">feed</a>
+              <a class="nav-link" href="./Signup.html">Sign up</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+     
+    <div class="d-flex flex-column align-items-center mt-5 ">
+        <form class="col-10 shadow rounded p-4">
+            <h1 class>Enter your info</h1>
+            <div class="row g-3 align-items-center mb-2">
+                <div class="col-auto">
+                    <label for="email" class="form-label">Email address</label>
+                </div>
+                <div class="col-auto">
+                    <input type="email" class="form-control mb-2" id="email" placeholder="name@example.com" required>
+                </div>
+            </div>
+            <div class="row g-3 align-items-center mb-2">
+                <div class="col-auto">
+                  <label for="password" class="col-form-label" >Password</label>
+                </div>
+                <div class="col-auto">
+                  <input type="password" id="password" class="form-control" aria-describedby="passwordHelpInline" required>
+                </div>
+            </div>
+            <div class="row col-12 g-3 justify-content-center mt-4">
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-primary" id="signUpbtn">Login</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+
+<script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+</html>
