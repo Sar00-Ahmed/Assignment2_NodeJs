@@ -1,15 +1,13 @@
 
-let DB = {
-    "usersNo" : 0,
-    "blogsNO" : 0,
-};
+let DB;
 
 const express = require("express");
 const app = express();
+app.use(express.json());
 
 app.use("/assets",express.static(`${__dirname}/public/assets`));
 app.use("/node_modules",express.static(`${__dirname}/node_modules`));
-app.use(express.json());
+
 
 
 
@@ -41,10 +39,10 @@ app.post("/users",(req,res)=>{
     DB.usersNo++;
     DB.users.push(
         {
-            "name": name,
-            "email": email,
-            "password": password,
-            "id": DB.usersNo,
+            name,
+            email,
+            password,
+            id: DB.users.length + 1,
         }
     )
 });
@@ -63,12 +61,12 @@ app.get("/blogs/:blogId",(res, req)=>{
 app.post("/blogs",(req, res)=>{
     const {title, description, user_id} = req.body;
     DB.blogsNo++;
-    DB.users.push(
+    DB.blogs.push(
         {
-            "title": title,
-            "description": description,
-            "user_id": user_id,
-            "id": DB.blogsNo,
+            title,
+            description,
+            user_id,
+            id: DB.blogs.length + 1,
         }
     )
 });
