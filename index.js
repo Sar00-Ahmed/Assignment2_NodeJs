@@ -27,7 +27,6 @@ app.get("/Login",(req,res)=>{
 app.post("/users",(req,res)=>{
     const {name, email, password} = req.body;
     console.log(`name: ${name}`);
-    DB.usersNo++;
     DB.users.push(
         {
             name,
